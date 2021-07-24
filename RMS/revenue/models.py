@@ -2,21 +2,20 @@ from django.db import models
 
 # Create your models here.
 class Customer(models.Model):
-    cust_name       = models.CharField(max_length=50,null=False,primary_key=True)
-    cust_id         = models.PositiveIntegerField(unique=True)
-    cust_address    = models.CharField(max_length=70,null=False)
+    name       = models.CharField(max_length=50)
+    address    = models.CharField(max_length=70)
 
     def __str__(self):
-        return self.cust_name
+        return self.name
 
 class Revenue(models.Model):
-    cust_id                = models.ForeignKey('Customer',null=False,on_delete=models.PROTECT)
-    invoice_amount_euro     = models.DecimalField(decimal_places=2,null=False,max_digits=6)
-    transaction_date        = models.DateField(null=False)
+    customer                = models.ForeignKey('Customer',on_delete=models.PROTECT)
+    invoice_amount_euro     = models.DecimalField(decimal_places=2,max_digits=6)
+    transaction_date        = models.DateField()
     revenue_charged_euro    = models.DecimalField(default=0,decimal_places=2,max_digits=6)
     cost_of_goods_euro      = models.DecimalField(default=0,decimal_places=2,max_digits=6)
-    account_invoice_received = models.PositiveIntegerField(null=False)
-    revenue_account_name  = models.CharField(max_length=50,null=False,default=111001)
+    account_invoice_received = models.PositiveIntegerField()
+    revenue_account_name  = models.CharField(max_length=50,default=111001)
     operational_costs_euro  = models.DecimalField(default=0,decimal_places=2,max_digits=6)
 
    # @property
@@ -27,7 +26,7 @@ class Revenue(models.Model):
 
     def __str__(self):
         return self.revenue_account_name
-        return self.cust_id              #not returning chk with foreign key ask
+        #return self.cust_id              #not returning chk with foreign key ask
 
 
 #class GM(models.Model):
