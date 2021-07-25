@@ -9,6 +9,7 @@ from revenue.models import Revenue,Customer
 class RevenueList(ListView):
     model = Revenue
     template_name = 'listrev.html'
+    context_object_name = 'revenuecontext'
     #def get(self,request):
     #return HttpResponse(f"Hello this is the page")
     #listrev = Revenue.objects.all()
