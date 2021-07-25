@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from revenue.models import Revenue,Customer
+from django.urls import reverse_lazy
 #from django.views import Revenue
 #from .models import   -- ??
 
@@ -25,7 +26,8 @@ class UpdateRev(UpdateView):
     model = Revenue
     template_name = 'update_rev.html'
     context_object_name = 'updatecontext'
-
+    success_url = reverse_lazy('revenue')
+    fields = '__all__'
     #def get(self,request):
     #return HttpResponse(f"Hello this is the page")
     #listrev = Revenue.objects.all()

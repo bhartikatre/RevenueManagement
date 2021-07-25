@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
-        <ul>
-          {% for m in revenuecontext %}
-            <li>{{m.revenue_account_name     }}           ------------------->           {{m.transaction_date}}</li>
-          {% endfor %}
-        </ul>
+
+<h2>Update Revenue</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update Revenue" class="btn btn-primary">
+</form>
+
 
 {% endblock %}
-
