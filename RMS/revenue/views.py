@@ -17,10 +17,11 @@ class Details(DetailView):
     template_name = 'detail_rev.html'
     context_object_name = 'detailcontext'
 
-#class CreateRev(CreateView):
- #   model = Revenue
- #   template_name = 'create_rev.html'
- #   context_object_name = 'createcontext'
+class CreateRev(CreateView):
+    model = Revenue
+    template_name = 'create_rev.html'
+    success_url = reverse_lazy('revenue')
+    fields = '__all__'
 
 class UpdateRev(UpdateView):
     model = Revenue
