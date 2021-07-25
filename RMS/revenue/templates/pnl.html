@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+        <ul>
+          {% for m in pnlcontext %}
+            <li><a href="{% url 'pnl_rev' m.id %}">{{m.revenue_charged_euro}}</a> - {{m.cost_of_goods_euro}}</li>
+
+          {% endfor %}
+        </ul>
+
+{% endblock %}
+

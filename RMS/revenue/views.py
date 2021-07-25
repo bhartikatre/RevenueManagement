@@ -35,3 +35,18 @@ class UpdateRev(UpdateView):
     #context = {'listrev': listrev}
     #total_revenue = .count or other method for rev sum
        # return render(request, 'listrev.html')             #, context=context)
+class PnL(ListView):
+    model = Revenue
+    template_name = 'pnl.html'
+    context_object_name =  'pnlcontext'
+    # for a date range
+    #def Calpnl(self,*args,**kwargs):
+    #    for i in pnlcontext:
+    #        profit_loss = i.revenue_charged_euro - (i.cost_of_goods_euro + i.cost_of_goods_euro)
+    #    if profit_loss > 0
+    #            "its profit" image green arrow with toal amount
+    #    else
+    #            "its loss" image red with toal amt
+
+
+

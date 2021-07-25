@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include,path
-from revenue.views import RevenueList,Details,UpdateRev,CreateRev
+from revenue.views import RevenueList,Details,UpdateRev,CreateRev,PnL
 
 
 urlpatterns = [
@@ -24,6 +24,7 @@ urlpatterns = [
     path('revenue/<int:pk>',Details.as_view(),name='detail_rev'),
     path('revenue/<int:pk>/update',UpdateRev.as_view(),name='update_rev'),
     path('revenue/create',CreateRev.as_view(),name='create_rev'),
+    path('revenue/pnl',PnL.as_view(),name='pnl_rev'),
     #path('revenue/details',revenue),
     #path('revenue/update',revenue),
     #path('revenue/delete',revenue),
